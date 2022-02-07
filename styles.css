@@ -8,16 +8,16 @@
 }
 
 :root {
-    --main-color: #ECBC55;
-    --secondary-color: #FFC074;
-    --bg-color: #FAF1E6;
-    --font-color: #CDCDCD;    
+    --main-color: #d9faf2;
+    --secondary-color: #fdbc9b;
+    --grey-color: #d1d1d11f;
 }
 
 body {
-    min-height: 100vh;
+    min-height: fit-content;
     display: grid;
-    grid-template: 1fr 8fr / 3fr 10fr;
+    grid-template-rows: 2fr ;
+    grid-template-columns: 2.5fr 10fr;
     grid-template-areas: 
     "nav header"
     "nav main";
@@ -25,27 +25,19 @@ body {
 
 
 nav {
-    min-height: max-content;
     grid-area: nav;
     background-color: var(--main-color);
     padding-left: 20px;
-    
-
 }
 
-main {
-    border: 1px solid green;
-    grid-area: main;
-    height: fit-content;
-    background-color: var(--bg-color);
-    
-}
+
 
 nav > h1 {
     font-size: 30px;
-    padding-top: 10px;
+    padding-top: 20px;
     margin-bottom: 50px;
     font-weight: bold;
+    padding-left: 5px;
 }
 
 nav > ul {
@@ -74,21 +66,16 @@ main > img {
 }
 
 header {
-    
-    
-    border: 1px solid red;
     grid-area: header;
-    grid-template-rows: 1fr 1fr;
-    grid-area: 
-    "upper"
-    "lower";
-    
+    display: grid;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 
 
 .upper-header {
-    grid-area: upper;
     display: grid;
     grid-template-columns: 5fr 1.7fr;
     grid-template-areas: 
@@ -110,8 +97,6 @@ form > img {
 }
 
 .lower-header {
-    grid-area: lower;
-    border: 3px solid violet;
     padding-left: 30px;
 }
 
@@ -123,7 +108,6 @@ form {
     display: grid;
     grid-area: form;
     grid-template-columns: 0.2fr 3fr;
-    
 }
 
 form > input {
@@ -131,9 +115,7 @@ form > input {
     border-radius: 10px;
     border: none;
     height: 30px;
-    background-color: rgb(211, 211, 211);
-    
-    
+    background-color: rgba(211, 211, 211, 0.486);
 }
 
 .right-upper-header {
@@ -142,17 +124,12 @@ form > input {
     grid-template-columns: 1fr 1fr 2fr;
     grid-template-areas: 
     "notification avatar name";
-    
-    
 }
-
-
 
 .right-upper-header > img,
 .right-upper-header > h1 {
     align-self: center;
     justify-self: center;
-   
 }
 
 .notification {
@@ -165,4 +142,220 @@ form > input {
 
 .right-upper-header > h1 {
     grid-area: name;
+}
+
+.lower-header {
+    display: grid;
+    align-self: center;
+    align-items: center;
+    grid-template-columns: 1fr 5fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "img div new-button upload-button share-button";
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.lower-header > img {
+    width: 80px;
+    height: 80px;
+    grid-area: img;
+}
+
+.lower-header > div {
+    grid-area: div;
+    display: grid;
+    align-self: center;
+    align-items: center;
+    height: 80px;
+}
+
+.lower-header > div > h2 {
+    font-size: 15px;
+    padding-top: 20px;
+}
+
+.lower-header > div > h1 {
+    font-size: 25px;
+    padding-bottom: 15px;
+}
+
+.lower-header > button {
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+#new-button {
+    grid-area: new-button;
+}
+
+#upload-button {
+    grid-area: upload-button;
+}
+
+#share-button {
+    grid-area: share-button;
+    margin-right: 0px;
+}
+
+button:hover {
+    background-color: var(--secondary-color);  
+}
+
+main {
+    grid-area: main;
+    padding-left: 20px;
+    padding-top: 30px;
+    background-color: var(--grey-color);
+    display: grid;
+    grid-template: 1fr 1fr / 2fr 1fr;
+    grid-template-areas: 
+    "projects announcements"
+    "projects trending";
+    gap:20px;
+    height: fit-content; 
+}
+
+#projects {
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.01fr 0.2fr 0.2fr 0.2fr;
+    gap: 20px; 
+}
+
+#projects > h1 {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+}
+
+#trending {
+    grid-area: trending;
+}
+
+#projects > article {
+    border-left: 10px solid var(--secondary-color);
+    background-color: white;
+    border-radius: 10px;
+    height: 235px;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "title title"
+    "content content"
+    " ...... icons";
+    padding-left: 20px;
+    padding-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+#projects > article > h1 {
+    align-self: end;
+    grid-area: title;
+}
+
+#projects > article > p {
+    grid-area: content;
+}
+
+.icons {
+    grid-area: icons;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+#projects > article > img {
+    justify-self: center;
+}
+
+
+#announcements {
+    grid-area: announcements;
+    display: grid;
+    grid-template-rows: 0.3fr 3fr;
+    padding-right: 20px;
+    gap: 20px;
+}
+
+#announcement-div {
+    border-radius: 10px;
+    background-color: white;
+    padding: 40px;
+    display: grid;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+#announcements > article {
+    border-bottom: 1px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#announcement-div > article > p {
+    font-size: 15px;
+}
+
+#announcement-div > article > h1 {
+    font-size: 15px;
+}
+
+#trending {
+    display: grid;
+    grid-template-rows: 0.3fr 3fr;
+    padding-right: 20px;
+    gap: 20px;
+}
+
+#trending-div {
+    display: grid;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: fit-content;
+    gap: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+#trending-div > section {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "profile-icon handle"
+    "profile-icon name";
+    align-items: center;
+    max-height: 50px;
+}
+
+#trending-div > section > h1 {
+    align-self: end;
+    grid-area: handle;
+    font-size: 15px;
+}
+
+#trending-div > section > h2 {
+    align-self: flex-start;
+    grid-area: name;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#trending-div > section > img {
+    grid-area: profile-icon;
+    width: 50px;
+    height: 50px;
+}
+
+p {
+    color:rgb(75, 75, 75)
 }
